@@ -11,7 +11,11 @@ while True:
         print("Working hours...")
         with open(hostsTemp, 'r+') as file:
             content = file.read()
-            print(content)
+            for website in websiteList:
+                if website in content:
+                    pass
+                else:
+                    file.write(redirect+" "+website+"\n")
     else:
-        print("Have fun")
+        print("Non-working hours...")
     time.sleep(5)
