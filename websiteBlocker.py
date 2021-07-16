@@ -19,8 +19,10 @@ while True:
     else:
         with open(hostsTemp, 'r+') as file:
             content = file.readlines()
+            file.seek(0)
             for line in content:
                 if not any(website in line for website in websiteList):
                     file.write(line)
+            file.truncate()
         print("Non-working hours...")
     time.sleep(5)
