@@ -17,5 +17,10 @@ while True:
                 else:
                     file.write(redirect+" "+website+"\n")
     else:
+        with open(hostsTemp, 'r+') as file:
+            content = file.readlines()
+            for line in content:
+                if not any(website in line for website in websiteList):
+                    file.write(line)
         print("Non-working hours...")
     time.sleep(5)
